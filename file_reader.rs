@@ -1,7 +1,7 @@
 use std::fs::File;
 use std::io::{self, BufRead};
 
-pub fn read_lines(file_path: &str) -> io::Result<Vec<String>> {
+pub fn lines_to_vec(file_path: &str) -> io::Result<Vec<String>> {
     let file = File::open(file_path)?;
     let reader = io::BufReader::new(file);
 
@@ -12,4 +12,3 @@ pub fn read_lines(file_path: &str) -> io::Result<Vec<String>> {
 
     return Ok(lines) as io::Result<Vec<String>>;
 }
-
