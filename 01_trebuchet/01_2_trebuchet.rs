@@ -14,19 +14,6 @@ fn get_two_digit_keys(nums: &Vec<String>) -> Vec<i32> {
         })
         .collect::<Vec<i32>>();
 }
-/*
-    return NUMS
-        .iter()
-        .enumerate()
-        .filter_map(|(i, num)| {
-            if line.to_lowercase().contains(num) {
-                Some(char::from_digit(i as u32, 10).expect("Invalid Unicode character"))
-            } else {
-                None
-            }
-        })
-        .collect::<String>();
-*/
 
 fn get_digits(line: &str) -> String {
     return line
