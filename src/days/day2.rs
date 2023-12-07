@@ -59,6 +59,10 @@ impl Game {
             self.blue
         )
     }
+
+    fn get_power(&self) -> u32 {
+        self.red * self.green * self.blue
+    }
 }
 
 pub fn solve() {
@@ -73,7 +77,7 @@ pub fn solve() {
         let str_rounds: Vec<&str> = line[1].split(";").collect::<Vec<&str>>();
 
         let array_rounds: Vec<Vec<&str>> = str_rounds
-            .iter()
+            .into_iter()
             .map(|round| {
                 round
                     .trim()
@@ -83,7 +87,7 @@ pub fn solve() {
             })
             .collect::<Vec<Vec<&str>>>();
         let rounds: Vec<Vec<Vec<&str>>> = array_rounds
-            .iter()
+            .into_iter()
             .map(|round| {
                 round
                     .iter()
@@ -129,4 +133,13 @@ pub fn solve() {
     // 2551
     let sum_possible_ids: u32 = possible_games.iter().sum();
     println!("Sum of possible ids: {}", sum_possible_ids);
+
+    let powers: Vec<u32> = games
+        .iter()
+        .map(|game| game.get_power())
+        .collect::<Vec<u32>>();
+    println!("\nPowers: {:?}", powers);
+
+    let part_two_key: u32 = powers.iter().sum();
+    println!("\nPart two key: {}", part_two_key);
 }
